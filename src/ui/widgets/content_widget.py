@@ -118,10 +118,25 @@ class ContentSection(QWidget):
         self.layout().removeWidget(self.control_box)
         
     def send_data(self):
-        for field in self.fileUploadWidget.fields.values():
-            pathlist: list[str] = field.value()
-            pathlist.sort(key=sort_by_date)
-            print(pathlist)
+        if type(self.current_form).__name__ == 'FormA':
+            date = self.current_form.date_input.date()
+            info = UserInput(
+                form_type='FormA',
+                file_fields=self.fileUploadWidget.fields,
+                date=date
+            )
+
+        elif type(self.current_form).__name__ == 'FormB':
+            start_date = self.current_form.first_date_input.date()
+            end_date = self.current_form.last_date_input.date()
+            info = UserInput(
+                form_type='FormB',
+                file_fields=self.fileUploadWidget.fields,
+                start_date=start_date,
+                end_date=end_date
+            )
+
+        print(info)
 
     def update_send_button(self):
         counter: int = 0
