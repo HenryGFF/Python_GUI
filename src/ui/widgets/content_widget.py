@@ -1,7 +1,7 @@
 from PySide6.QtCore import Qt, QEasingCurve, QPropertyAnimation, QParallelAnimationGroup
 from PySide6.QtWidgets import QFrame, QVBoxLayout, QLabel, QWidget, QSizePolicy, QLayout, QGraphicsOpacityEffect
 from ui.components import SelectionBox, FormA, FormB, FinancialBasesUploadWidget, ControlBox
-from ui.helpers import sort_by_date
+from ui.helpers import UserInput
 
 
 class ContentSection(QWidget):
