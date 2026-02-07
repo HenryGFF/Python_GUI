@@ -8,9 +8,5 @@ class MainWindow(QMainWindow):
 
         self.setWindowTitle('App Daycoval')
 
-        self.scroll = QScrollArea()
-        self.scroll.setWidgetResizable(True)
-        self.setCentralWidget(self.scroll)
-
         self.central = CentralWidget()
         self.setCentralWidget(self.central)
