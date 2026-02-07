@@ -36,5 +36,6 @@ class CentralWidget(QWidget):
         self.content = ContentSection()
         scroll_layout.addWidget(self.content)
 
-        self.footer: FooterWidget = FooterWidget()
-        layout.addWidget(self.footer)
+        # FOOTER (rola junto)
+        self.footer = FooterWidget()
+        scroll_layout.addWidget(self.footer)
