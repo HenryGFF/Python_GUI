@@ -101,8 +101,6 @@ class ContentSection(QWidget):
             return
         self.control_box = ControlBox()
         self.layout().addWidget(self.control_box)
-
-        self.widget_animation(self.control_box)
         
         self.control_box.reset_content_widget.connect(self.reset_widget)
         self.control_box.send_content_data.connect(self.send_data)
