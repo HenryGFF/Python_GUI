@@ -39,7 +39,8 @@ class FinancialBasesUploadWidget(QFrame):
             "Base Planilha": FileUploadZone(
                 "Base OP_NDFxSWAP",
                 "Base histórico",
-                [".xlsx", ".xls"]
+                [".xlsx", ".xls"],
+                fixed_max_files=1
             )
         }
 
