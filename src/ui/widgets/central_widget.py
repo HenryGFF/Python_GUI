@@ -1,4 +1,5 @@
-from PySide6.QtWidgets import QWidget, QVBoxLayout
+from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QScrollArea, QFrame
 from ui.components.header_bar import HeaderBar
 from .content_widget import ContentSection
 from .footer_widget import FooterWidget
