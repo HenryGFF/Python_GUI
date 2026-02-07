@@ -165,8 +165,8 @@ class FileUploadZone(QFrame):
         if self.fixed_max_files is None:
             self.max_files = max(0, n)
 
-        if len(self.files) > self.max_files:
-            self.files = self.files[:self.max_files]
+            if len(self.files) > self.max_files:
+                self.files = self.files[:self.max_files]
 
         self.setEnabled(self.max_files > 0)
         self._update_ui()
