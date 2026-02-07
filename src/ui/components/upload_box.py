@@ -59,7 +59,7 @@ class FileUploadZone(QFrame):
     filesChanged = Signal(list)
     activateSendBtn = Signal()
 
-    def __init__(self, label: str, description: str, accept: list[str]):
+    def __init__(self, label: str, description: str, accept: list[str], fixed_max_files: int | None = None):
         super().__init__()
 
         self.setObjectName("upload_area")
