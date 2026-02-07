@@ -101,8 +101,8 @@ class FormB(FormBox):
         self.first_date_input.setCalendarPopup(True)
         self.first_date_input.setDisplayFormat("dd/MM/yyyy")
         self.first_date_input.setMaximumDate(QDate.currentDate())
-        self.first_date_input.setMinimumDate(QDate(2000, 1, 1))
-        self.first_date_input.setDate(QDate(2000, 1, 1))
+        self.first_date_input.setMinimumDate(QDate(2020, 1, 1))
+        self.first_date_input.setDate(QDate(2020, 1, 1))
 
 
         first_calendar = CustomCalendar(
