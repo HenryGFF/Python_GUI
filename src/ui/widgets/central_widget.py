@@ -26,8 +26,11 @@ class CentralWidget(QWidget):
 
         root_layout.addWidget(self.scroll)
 
-        self.header: HeaderBar = HeaderBar()
-        layout.addWidget(self.header)
+        # CONTAINER DO SCROLL
+        self.scroll_container = QWidget()
+        scroll_layout = QVBoxLayout(self.scroll_container)
+        scroll_layout.setContentsMargins(0, 30, 0, 0)
+        scroll_layout.setSpacing(24)
 
         self.content: ContentSection = ContentSection()
         layout.addWidget(self.content)
