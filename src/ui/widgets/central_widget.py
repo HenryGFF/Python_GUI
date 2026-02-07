@@ -32,8 +32,9 @@ class CentralWidget(QWidget):
         scroll_layout.setContentsMargins(0, 30, 0, 0)
         scroll_layout.setSpacing(24)
 
-        self.content: ContentSection = ContentSection()
-        layout.addWidget(self.content)
+        # CONTEÚDO
+        self.content = ContentSection()
+        scroll_layout.addWidget(self.content)
 
         self.footer: FooterWidget = FooterWidget()
         layout.addWidget(self.footer)
