@@ -178,19 +178,3 @@ class ContentSection(QWidget):
             if item.widget() is widget:
                 return True
         return False
-
-    #animation
-    def widget_animation(self, widget):
-        # 🔑 LIMPA qualquer efeito anterior
-        widget.setGraphicsEffect(None)
-
-        effect = QGraphicsOpacityEffect(widget)
-        widget.setGraphicsEffect(effect)
-
-        anim = QPropertyAnimation(effect, b"opacity", widget)
-        anim.setDuration(500)
-        anim.setStartValue(0)
-        anim.setEndValue(1)
-        anim.setEasingCurve(QEasingCurve.OutQuart)
-
-        anim.start(QPropertyAnimation.DeleteWhenStopped)
