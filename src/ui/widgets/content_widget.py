@@ -89,8 +89,6 @@ class ContentSection(QWidget):
         self.current_form = form
         self.center_layout.addWidget(self.current_form)
 
-        self.widget_animation(self.current_form)
-
         self.current_form.setVisible(True)
 
         # 🔑 conexão CORRETA
