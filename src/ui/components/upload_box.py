@@ -21,6 +21,11 @@ class FinancialBasesUploadWidget(QFrame):
                 "Arquivo Eletronic Trading",
                 [".xlsx", ".xls", ".csv"]
             ),
+            "Base ET Completa": FileUploadZone(
+                "Base ET Completa",
+                "Arquivo Eletronic Trading Completa",
+                [".xlsx", ".xls", ".csv"]
+            ),
             "Base BBG": FileUploadZone(
                 "Base BBG",
                 "Arquivo Bloomberg",
