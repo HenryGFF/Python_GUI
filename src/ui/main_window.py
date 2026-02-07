@@ -13,9 +13,4 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.scroll)
 
         self.central = CentralWidget()
-        self.scroll.setWidget(self.central)
-
-        self.central.layout().addStretch()
-
-        self.scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.scroll.setFrameShape(QFrame.NoFrame)
+        self.setCentralWidget(self.central)
