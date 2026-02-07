@@ -153,15 +153,6 @@ class ContentSection(QWidget):
 
             self.center_layout.addWidget(self.fileUploadWidget)
 
-            #animação especial para esse widget
-            self.fileUploadWidget.setMaximumHeight(0)
-            anim = QPropertyAnimation(self.fileUploadWidget, b"maximumHeight", self.fileUploadWidget)
-            anim.setDuration(500)
-            anim.setStartValue(0)
-            anim.setEndValue(self.fileUploadWidget.sizeHint().height())
-            anim.setEasingCurve(QEasingCurve.OutCubic)
-            anim.start(QPropertyAnimation.DeleteWhenStopped)
-
     def on_max_files_changed(self, n: int):
         self.add_file_inputs()  # garante que existe
 
