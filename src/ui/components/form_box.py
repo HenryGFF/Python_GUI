@@ -58,8 +58,8 @@ class FormA(FormBox):
         self.date_input.setCalendarPopup(True)
         self.date_input.setDisplayFormat("dddd, dd MMMM yyyy")
         self.date_input.setMaximumDate(QDate.currentDate())
-        self.date_input.setMinimumDate(QDate(2000, 1, 1))
-        self.date_input.setDate(QDate(2000, 1, 1))
+        self.date_input.setMinimumDate(QDate(2020, 1, 1))
+        self.date_input.setDate(QDate(2020, 1, 1))
         self.date_input.setSpecialValueText("Escolha uma data")
 
         calendar = CustomCalendar(
