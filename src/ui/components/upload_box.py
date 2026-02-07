@@ -162,7 +162,8 @@ class FileUploadZone(QFrame):
 
     # ---------- API pública ----------
     def set_max_files(self, n: int):
-        self.max_files = max(0, n)
+        if self.fixed_max_files is None:
+            self.max_files = max(0, n)
 
         if len(self.files) > self.max_files:
             self.files = self.files[:self.max_files]
