@@ -16,8 +16,8 @@ class FinancialBasesUploadWidget(QFrame):
                 "Arquivo da base 360T",
                 [".xlsx", ".xls", ".csv"]
             ),
-            "Base ET": FileUploadZone(
-                "Base ET",
+            "Base ET Filtrada": FileUploadZone(
+                "Base ET Filtrada",
                 "Arquivo Eletronic Trading",
                 [".xlsx", ".xls", ".csv"]
             ),
