@@ -67,7 +67,8 @@ class FileUploadZone(QFrame):
 
         self.accept = accept
         self.files: list[str] = []
-        self.max_files = 0
+        self.fixed_max_files = fixed_max_files
+        self.max_files = fixed_max_files or 0
 
         self.label = QLabel(label)
         self.description = QLabel(description)
