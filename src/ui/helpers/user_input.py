@@ -1,4 +1,5 @@
 from .sort_pathlist import sort_by_date
+from .bacen_request import get_ptax_single_date, get_ptax_period
 
 class UserInput(dict):
     def __init__(self, **kwargs):
@@ -7,11 +8,13 @@ class UserInput(dict):
         if kwargs['form_type'] == 'FormA':
             self['date_interval'] = 'single date'
             self['date'] = kwargs['date'].toPython()
+            self.ptax_diaria = get_ptax()
 
         elif kwargs['form_type'] == 'FormB':
             self['date_interval'] = 'period'
             self['start_date'] = kwargs['start_date'].toPython()
             self['end_date'] = kwargs['end_date'].toPython()
+            self.ptax_diaria = get_ptax()
 
         self['file_lists'] = split_file_fields(kwargs['file_fields'])
 
