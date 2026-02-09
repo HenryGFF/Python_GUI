@@ -32,7 +32,7 @@ class ContentSection(QWidget):
 
         self.center_layout = QVBoxLayout(self.center_wrapper)
         self.center_layout.setContentsMargins(0, 0, 0, 0)
-        self.center_layout.setSpacing(0)
+        self.center_layout.setSpacing(10)
 
         self.center_layout.addWidget(self.section_header)
         self.center_layout.addWidget(self.selection_box)
