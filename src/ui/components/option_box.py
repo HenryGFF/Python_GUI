@@ -3,6 +3,7 @@ from PySide6.QtWidgets import QPushButton, QWidget, QHBoxLayout, QVBoxLayout, QL
 from PySide6.QtCore import QSize, Signal
 from dataclasses import dataclass
 from enum import Enum, auto
+from pathlib import Path
 
 
 class TargetForm(Enum):
@@ -15,12 +16,14 @@ class ButtonConfig:
     label: str
     sublabel: str
     form_type: TargetForm
-    icon: str
+    icon: Path
 
 
 class OptionBox(QWidget):
     def __init__(self):
         super().__init__()
+        BASE_DIR = Path(__file__).resolve().parent
+
         self.setSizePolicy(
             QSizePolicy.Policy.Expanding,
             QSizePolicy.Policy.Preferred
@@ -34,7 +37,7 @@ class OptionBox(QWidget):
                 label = 'Um dia',
                 sublabel = 'Conciliação para uma data específica',
                 form_type = TargetForm.FormA,
-                icon = 'assets/images/calendario_icon.png'
+                icon = BASE_DIR / '..' / '..' / 'assets' / 'images' / 'calendario_icon.png'
             )
         )
         self.optionB: Button = Button(
@@ -43,7 +46,7 @@ class OptionBox(QWidget):
                 label='Período',
                 sublabel='Conciliação para um intervalo de datas',
                 form_type = TargetForm.FormB,
-                icon='assets/images/calendario2_icon.png'
+                icon = BASE_DIR / '..' / '..' / 'assets' / 'images' / 'calendario2_icon.png'
 
             )
         )
@@ -74,7 +77,7 @@ class Button(QPushButton):
 
         icon_layout = QHBoxLayout(icon)
         icon_label = QLabel()
-        img = QPixmap(config.icon)
+        img = QPixmap(str(config.icon))
         icon_label.setPixmap(img)
         icon_label.setScaledContents(True)
         icon_layout.addWidget(icon_label)

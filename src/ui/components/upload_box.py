@@ -71,8 +71,14 @@ class FileUploadZone(QFrame):
         self.max_files = fixed_max_files or 0
 
         self.label = QLabel(label)
+        self.label.setStyleSheet('color: black;')
+
         self.description = QLabel(description)
+        self.description.setStyleSheet('color: black;')
+
         self.info = QLabel("Nenhum arquivo selecionado")
+        self.info.setStyleSheet('color: black;')
+
         self.remove_btn = QPushButton("✕")
 
         self.label.setAlignment(Qt.AlignCenter)

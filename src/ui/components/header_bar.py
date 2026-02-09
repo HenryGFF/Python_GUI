@@ -1,4 +1,4 @@
-from PySide6.QtCore import Qt
+from pathlib import Path
 from PySide6.QtGui import QPixmap, QIcon
 from PySide6.QtWidgets import QVBoxLayout, QLabel, QSizePolicy, QFrame, QHBoxLayout, QWidget
 
@@ -6,6 +6,9 @@ from PySide6.QtWidgets import QVBoxLayout, QLabel, QSizePolicy, QFrame, QHBoxLay
 class HeaderBar(QFrame):
     def __init__(self):
         super().__init__()
+        BASE_DIR = Path(__file__).resolve().parent
+
+        icon_path = BASE_DIR / '..' / '..' / 'assets' / 'images' / 'daycoval-logo.png'
 
         self.setFixedHeight(100)
         self.setSizePolicy(
@@ -21,7 +24,7 @@ class HeaderBar(QFrame):
 
         icon_layout = QHBoxLayout(icon)
         label = QLabel()
-        img = QPixmap('assets/images/daycoval-logo.png')
+        img = QPixmap(str(icon_path))
         label.setPixmap(img)
         label.setScaledContents(True)
         icon_layout.addWidget(label)
