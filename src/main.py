@@ -16,6 +16,7 @@ palette = QPalette()
 palette.setColor(QPalette.Window, QColor(249, 250, 251))
 palette.setColor(QPalette.Base, QColor(249, 250, 251))
 palette.setColor(QPalette.AlternateBase, QColor(255, 255, 255))
+app.setPalette(palette)
 
 QFontDatabase.addApplicationFont(str(font_path))
 

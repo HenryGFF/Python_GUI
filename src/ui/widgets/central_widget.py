@@ -43,9 +43,6 @@ class CentralWidget(QWidget):
         self.footer = FooterWidget()
         scroll_layout.addWidget(self.footer)
 
-        # Empurra tudo pra cima quando faltar conteúdo
-        scroll_layout.addStretch()
-
         self.scroll.setWidget(self.scroll_container)
 
     def resizeEvent(self, event):

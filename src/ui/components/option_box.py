@@ -94,6 +94,12 @@ class Button(QPushButton):
         layout.addWidget(self.label)
         layout.addWidget(self.sublabel)
 
+        button_height = max(
+            self.label.sizeHint().height() + self.sublabel.sizeHint().height(),
+            60  # tamanho do ícone
+        ) + 20  # margem
+        self.setFixedHeight(button_height)
+
         button_layout = QHBoxLayout(self)
         button_layout.setContentsMargins(10, 10, 10, 10)
         button_layout.addWidget(icon)

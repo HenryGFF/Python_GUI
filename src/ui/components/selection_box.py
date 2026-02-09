@@ -23,4 +23,6 @@ class SelectionBox(QFrame):
         layout.addWidget(title)
         layout.addWidget(self.option_box)
 
+        layout.setSizeConstraint(QVBoxLayout.SetMinimumSize)
+
         self.setLayout(layout)

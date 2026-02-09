@@ -30,7 +30,8 @@ QWidget#SelectionBox{
 }
 
 QFrame#FormBox{
-    margin: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     background: #FFFFFF;
     border: 1px solid #E0E6EB;
     border-radius: 10px;
