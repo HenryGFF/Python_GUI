@@ -12,9 +12,7 @@ font_path = BASE_DIR / 'assets' / 'fonts' / 'Quicksand' / 'Quicksand-VariableFon
 
 app = QApplication(sys.argv)
 
-QFontDatabase.addApplicationFont(
-    "assets/fonts/Quicksand/Quicksand-VariableFont_wght.ttf"
-)
+QFontDatabase.addApplicationFont(str(font_path))
 
 with open(qss_path, 'r', encoding='utf-8') as f:
     app.setStyleSheet(f.read())
