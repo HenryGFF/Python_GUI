@@ -5,7 +5,6 @@ from .option_box import OptionBox
 class SelectionBox(QFrame):
     def __init__(self):
         super().__init__()
-        self.setFixedHeight(190)
         self.setSizePolicy(
             QSizePolicy.Policy.Expanding,
             QSizePolicy.Policy.Preferred
@@ -21,7 +20,7 @@ class SelectionBox(QFrame):
         layout: QVBoxLayout = QVBoxLayout()
         layout.setContentsMargins(20, 30, 20, 30)
         layout.setSpacing(0)
-        layout.addWidget(title, alignment=Qt.AlignLeft)
-        layout.addWidget(self.option_box, alignment=Qt.AlignHCenter)
+        layout.addWidget(title)
+        layout.addWidget(self.option_box)
 
         self.setLayout(layout)

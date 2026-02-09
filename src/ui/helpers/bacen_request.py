@@ -24,6 +24,7 @@ def get_ptax(data):
 def get_ptax_single_date(date):
     dados = get_ptax(date)
     return dados[-1] #último dia útil
+#formato: {'data': '30/01/2026', 'valor': '5.2301'}
 
 def get_ptax_period(start_date, end_date):
     ptax_list = []
@@ -34,8 +35,5 @@ def get_ptax_period(start_date, end_date):
         dados = get_ptax(dia)
         ptax_list.append(dados[-1])
 
-    print(ptax_list)
-
-d1 = datetime.date(2026, 2, 7)
-d2 = datetime.date(2026, 1, 31)
-get_ptax_period(d2, d1)
+    return ptax_list
+#formtato: [{'data': '30/01/2026', 'valor': '5.2301'}, {'data': '30/01/2026', 'valor': '5.2301'}, {'data': '02/02/2026', 'valor': '5.2587'}, {'data': '03/02/2026', 'valor': '5.2236'}, {'data': '04/02/2026', 'valor': '5.2359'}, {'data': '05/02/2026', 'valor': '5.2580'}, {'data': '06/02/2026', 'valor': '5.2341'}, {'data': '06/02/2026', 'valor': '5.2341'}]

@@ -1,5 +1,3 @@
-from cProfile import label
-
 from PySide6.QtGui import QPixmap
 from PySide6.QtWidgets import QPushButton, QWidget, QHBoxLayout, QVBoxLayout, QLabel, QButtonGroup, QSizePolicy
 from PySide6.QtCore import QSize, Signal
@@ -23,10 +21,9 @@ class ButtonConfig:
 class OptionBox(QWidget):
     def __init__(self):
         super().__init__()
-        self.setFixedHeight(100)
         self.setSizePolicy(
             QSizePolicy.Policy.Expanding,
-            QSizePolicy.Policy.Fixed
+            QSizePolicy.Policy.Preferred
         )
 
         layout: QHBoxLayout = QHBoxLayout(self)

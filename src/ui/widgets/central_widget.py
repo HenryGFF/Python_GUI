@@ -1,13 +1,16 @@
 from PySide6.QtCore import Qt
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QScrollArea, QFrame
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QScrollArea, QFrame, QBoxLayout
 from ui.components.header_bar import HeaderBar
 from .content_widget import ContentSection
 from .footer_widget import FooterWidget
+from ui.helpers import gui_responsivity
 
 
 class CentralWidget(QWidget):
     def __init__(self):
         super().__init__()
+
+        self._ui_mode = None
 
         # Layout raiz
         root_layout = QVBoxLayout(self)
@@ -44,3 +47,7 @@ class CentralWidget(QWidget):
         scroll_layout.addStretch()
 
         self.scroll.setWidget(self.scroll_container)
+
+    def resizeEvent(self, event):
+        gui_responsivity(self)
+        super().resizeEvent(event)

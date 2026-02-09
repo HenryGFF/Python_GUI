@@ -22,7 +22,8 @@ QFrame#header_icon QLabel{
 }
 
 QWidget#SelectionBox{
-    margin: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     background: #FFFFFF;
     border: 1px solid #E0E6EB;
     border-radius: 10px;
@@ -217,4 +218,19 @@ QLabel#first_label{
 }
 QLabel#last_label{
     color: #8E98A3
+}
+
+QLabel#status_text[status="processing"] {
+    color: #F8911B;
+    font-weight: bold;
+}
+
+QLabel#status_text[status="success"] {
+    color: #37FD12;
+    font-weight: bold;
+}
+
+QLabel#status_text[status="error"] {
+    color: #FF0800;
+    font-weight: bold;
 }

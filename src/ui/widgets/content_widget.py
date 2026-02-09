@@ -24,7 +24,7 @@ class ContentSection(QWidget):
             QSizePolicy.Policy.Preferred
         )
 
-        self.selection_box: QFrame = SelectionBox()
+        self.selection_box = SelectionBox()
         self.selection_box.setSizePolicy(
             QSizePolicy.Policy.Expanding,
             QSizePolicy.Policy.Preferred
@@ -34,12 +34,12 @@ class ContentSection(QWidget):
         self.center_layout.setContentsMargins(0, 0, 0, 0)
         self.center_layout.setSpacing(0)
 
+        self.center_layout.addWidget(self.section_header)
         self.center_layout.addWidget(self.selection_box)
 
         section_layout: QVBoxLayout = QVBoxLayout()
         section_layout.setContentsMargins(0, 0, 0, 0)
         section_layout.setSpacing(0)
-        section_layout.addWidget(self.section_header, alignment=Qt.AlignHCenter)
         section_layout.addWidget(self.center_wrapper, alignment=Qt.AlignHCenter)
 
         self.setLayout(section_layout)
@@ -47,9 +47,12 @@ class ContentSection(QWidget):
         self.selection_box.option_box.optionA.add_form_requested.connect(self.add_form)
         self.selection_box.option_box.optionB.add_form_requested.connect(self.add_form)
 
-    def __init_sectionheader(self) -> QWidget:
-        section_header: QWidget = QWidget()
-        section_header.setFixedHeight(70)
+    def __init_sectionheader(self) -> QFrame:
+        section_header: QFrame = QFrame()
+        section_header.setSizePolicy(
+            QSizePolicy.Policy.Expanding,
+            QSizePolicy.Policy.Preferred
+        )
         section_header.setObjectName('section_header')
 
         section_title: QLabel = QLabel()
@@ -59,10 +62,11 @@ class ContentSection(QWidget):
         section_legend: QLabel = QLabel()
         section_legend.setText('Selecione o tipo de conciliação, o período desejado e importe as bases necessárias.')
         section_legend.setObjectName('section_legend')
+        section_legend.setWordWrap(True)
 
         layout: QVBoxLayout = QVBoxLayout()
         layout.setContentsMargins(0, 0, 0, 0)
-        layout.setSpacing(10)
+        layout.setSpacing(5)
         layout.addWidget(section_title)
         layout.addWidget(section_legend)
 
@@ -114,25 +118,32 @@ class ContentSection(QWidget):
         self.layout().removeWidget(self.control_box)
         
     def send_data(self):
-        if type(self.current_form).__name__ == 'FormA':
-            date = self.current_form.date_input.date()
-            info = UserInput(
-                form_type='FormA',
-                file_fields=self.fileUploadWidget.fields,
-                date=date
-            )
+        try:
+            self.control_box.status_bar.show_message("Processando...", "processing")
 
-        elif type(self.current_form).__name__ == 'FormB':
-            start_date = self.current_form.first_date_input.date()
-            end_date = self.current_form.last_date_input.date()
-            info = UserInput(
-                form_type='FormB',
-                file_fields=self.fileUploadWidget.fields,
-                start_date=start_date,
-                end_date=end_date
-            )
+            if type(self.current_form).__name__ == 'FormA':
+                date = self.current_form.date_input.date()
+                info = UserInput(
+                    form_type='FormA',
+                    file_fields=self.fileUploadWidget.fields,
+                    date=date
+                )
 
-        print(info)
+            elif type(self.current_form).__name__ == 'FormB':
+                start_date = self.current_form.first_date_input.date()
+                end_date = self.current_form.last_date_input.date()
+                info = UserInput(
+                    form_type='FormB',
+                    file_fields=self.fileUploadWidget.fields,
+                    start_date=start_date,
+                    end_date=end_date
+                )
+
+            print(info)
+            self.control_box.status_bar.show_message("Concluído com sucesso!", "success")
+        except Exception:
+            self.control_box.status_bar.show_message("Algo deu errado!", "error")
+            print(Exception)
 
     def update_send_button(self):
         counter: int = 0

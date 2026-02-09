@@ -1,5 +1,6 @@
 from PySide6.QtCore import QSize, Signal, Qt
 from PySide6.QtWidgets import QWidget, QSizePolicy, QPushButton, QLabel, QHBoxLayout, QVBoxLayout
+from .status_bar import StatusMessage
 
 class ControlBox(QWidget):
     reset_content_widget = Signal()
@@ -33,7 +34,10 @@ class ControlBox(QWidget):
         container_layout.addWidget(self.send_btn, alignment=Qt.AlignHCenter)
         self.send_btn.setEnabled(False)
 
+        self.status_bar = StatusMessage()
+
         layout.addWidget(container, alignment=Qt.AlignHCenter)
+        layout.addWidget(self.status_bar)
 
     def reset_btn_click(self):
         self.reset_content_widget.emit()

@@ -8,13 +8,13 @@ class UserInput(dict):
         if kwargs['form_type'] == 'FormA':
             self['date_interval'] = 'single date'
             self['date'] = kwargs['date'].toPython()
-            self.ptax_diaria = get_ptax()
+            self['ptax_diaria'] = get_ptax_single_date(self['date'])
 
         elif kwargs['form_type'] == 'FormB':
             self['date_interval'] = 'period'
             self['start_date'] = kwargs['start_date'].toPython()
             self['end_date'] = kwargs['end_date'].toPython()
-            self.ptax_diaria = get_ptax()
+            self['ptax_diaria'] = get_ptax_period(self['start_date'], self['end_date'])
 
         self['file_lists'] = split_file_fields(kwargs['file_fields'])
 
